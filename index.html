@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/filter.css">
+<link rel="stylesheet" href="css/nouislider.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/tailDT.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/wNumb.js"></script>
+        <script src="data/Polygon2_1.js"></script>
+        <script src="data/Polyline_2.js"></script>
+        <script src="data/Point_3.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        map.createPane('pane_PetaSatelitGrogol_modified_0');
+        map.getPane('pane_PetaSatelitGrogol_modified_0').style.zIndex = 400;
+        var img_PetaSatelitGrogol_modified_0 = 'data/PetaSatelitGrogol_modified_0.png';
+        var img_bounds_PetaSatelitGrogol_modified_0 = [[-7.801831882635065,110.68880623522075],[-7.7668700122991545,110.75160145627913]];
+        var layer_PetaSatelitGrogol_modified_0 = new L.imageOverlay(img_PetaSatelitGrogol_modified_0,
+                                              img_bounds_PetaSatelitGrogol_modified_0,
+                                              {pane: 'pane_PetaSatelitGrogol_modified_0'});
+        bounds_group.addLayer(layer_PetaSatelitGrogol_modified_0);
+        map.addLayer(layer_PetaSatelitGrogol_modified_0);
+        function pop_Polygon2_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Legenda'] !== null ? autolinker.link(feature.properties['Legenda'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Polygon2_1_0(feature) {
+            switch(String(feature.properties['Legenda'])) {
+                case 'Embung':
+                    return {
+                pane: 'pane_Polygon2_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,170,219,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Kebun':
+                    return {
+                pane: 'pane_Polygon2_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,180,77,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Lapangan':
+                    return {
+                pane: 'pane_Polygon2_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(104,132,195,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Pemakaman':
+                    return {
+                pane: 'pane_Polygon2_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(233,70,51,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Pemukiman':
+                    return {
+                pane: 'pane_Polygon2_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,122,17,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sawah':
+                    return {
+                pane: 'pane_Polygon2_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(126,181,90,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Polygon2_1');
+        map.getPane('pane_Polygon2_1').style.zIndex = 401;
+        map.getPane('pane_Polygon2_1').style['mix-blend-mode'] = 'normal';
+        var layer_Polygon2_1 = new L.geoJson(json_Polygon2_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Polygon2_1',
+            layerName: 'layer_Polygon2_1',
+            pane: 'pane_Polygon2_1',
+            onEachFeature: pop_Polygon2_1,
+            style: style_Polygon2_1_0,
+        });
+        bounds_group.addLayer(layer_Polygon2_1);
+        map.addLayer(layer_Polygon2_1);
+        function pop_Polyline_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Legenda'] !== null ? autolinker.link(feature.properties['Legenda'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Polyline_2_0(feature) {
+            switch(String(feature.properties['q2wHide_id'])) {
+                case '0':
+                    return {
+                pane: 'pane_Polyline_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '1':
+                    return {
+                pane: 'pane_Polyline_2',
+                opacity: 1,
+                color: 'rgba(197,84,76,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '2':
+                    return {
+                pane: 'pane_Polyline_2',
+                opacity: 1,
+                color: 'rgba(72,139,168,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '3':
+                    return {
+                pane: 'pane_Polyline_2',
+                opacity: 1,
+                color: 'rgba(55,81,161,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Polyline_2');
+        map.getPane('pane_Polyline_2').style.zIndex = 402;
+        map.getPane('pane_Polyline_2').style['mix-blend-mode'] = 'normal';
+        var layer_Polyline_2 = new L.geoJson(json_Polyline_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Polyline_2',
+            layerName: 'layer_Polyline_2',
+            pane: 'pane_Polyline_2',
+            onEachFeature: pop_Polyline_2,
+            style: style_Polyline_2_0,
+        });
+        bounds_group.addLayer(layer_Polyline_2);
+        map.addLayer(layer_Polyline_2);
+        function pop_Point_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Kategori</strong><br />' + (feature.properties['Kategori'] !== null ? autolinker.link(feature.properties['Kategori'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Lokasi</strong><br />' + (feature.properties['Lokasi'] !== null ? autolinker.link(feature.properties['Lokasi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Vidprofile'] !== null ? autolinker.link(feature.properties['Vidprofile'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Trial'] !== null ? autolinker.link(feature.properties['Trial'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Point_3_0(feature) {
+            switch(String(feature.properties['Kategori'])) {
+                case 'Fasilitas Umum':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Fasilitas Umum.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'Gedung Olahraga':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Gedung Olahraga.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'Pendidikan':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Pendidikan.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'Pertanian/Peternakan':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Pertanian Peternakan.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'Tempat Ibadah':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Tempat Ibadah.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Alumunium & Kaca':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Kaca.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Arang':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Arang.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Dekorasi':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Dekor.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Genteng':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Genteng.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Lurik':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Lurik.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Mebel':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Mebel.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Pigura':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Pigura.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Sangkar':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Sangkar.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Tekstil':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Lurik.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+                case 'UMKM Wuwung Seng':
+                    return {
+                pane: 'pane_Point_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/UMKM Wuwung Seng.svg',
+            iconSize: [57.0, 57.0]
+        }),
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Point_3');
+        map.getPane('pane_Point_3').style.zIndex = 403;
+        map.getPane('pane_Point_3').style['mix-blend-mode'] = 'normal';
+        var layer_Point_3 = new L.geoJson(json_Point_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Point_3',
+            layerName: 'layer_Point_3',
+            pane: 'pane_Point_3',
+            onEachFeature: pop_Point_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Point_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Point_3);
+        map.addLayer(layer_Point_3);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Point<br /><table><tr><td style="text-align: center;"><img src="legend/Point_3_FasilitasUmum0.png" /></td><td>Fasilitas Umum</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_GedungOlahraga1.png" /></td><td>Gedung Olahraga</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_Pendidikan2.png" /></td><td>Pendidikan</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_PertanianPeternakan3.png" /></td><td>Pertanian/Peternakan</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_TempatIbadah4.png" /></td><td>Tempat Ibadah</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMAlumuniumKaca5.png" /></td><td>UMKM Alumunium & Kaca</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMArang6.png" /></td><td>UMKM Arang</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMDekorasi7.png" /></td><td>UMKM Dekorasi</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMGenteng8.png" /></td><td>UMKM Genteng</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMLurik9.png" /></td><td>UMKM Lurik</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMMebel10.png" /></td><td>UMKM Mebel</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMPigura11.png" /></td><td>UMKM Pigura</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMSangkar12.png" /></td><td>UMKM Sangkar</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMTekstil13.png" /></td><td>UMKM Tekstil</td></tr><tr><td style="text-align: center;"><img src="legend/Point_3_UMKMWuwungSeng14.png" /></td><td>UMKM Wuwung Seng</td></tr></table>': layer_Point_3,'Polyline<br /><table><tr><td style="text-align: center;"><img src="legend/Polyline_2_BatasDesa0.png" /></td><td>Batas Desa</td></tr><tr><td style="text-align: center;"><img src="legend/Polyline_2_JalanKabupaten1.png" /></td><td>Jalan Kabupaten</td></tr><tr><td style="text-align: center;"><img src="legend/Polyline_2_Sungai2.png" /></td><td>Sungai</td></tr><tr><td style="text-align: center;"><img src="legend/Polyline_2_JalanDesa3.png" /></td><td>Jalan Desa</td></tr></table>': layer_Polyline_2,'Polygon2<br /><table><tr><td style="text-align: center;"><img src="legend/Polygon2_1_Embung0.png" /></td><td>Embung</td></tr><tr><td style="text-align: center;"><img src="legend/Polygon2_1_Kebun1.png" /></td><td>Kebun</td></tr><tr><td style="text-align: center;"><img src="legend/Polygon2_1_Lapangan2.png" /></td><td>Lapangan</td></tr><tr><td style="text-align: center;"><img src="legend/Polygon2_1_Pemakaman3.png" /></td><td>Pemakaman</td></tr><tr><td style="text-align: center;"><img src="legend/Polygon2_1_Pemukiman4.png" /></td><td>Pemukiman</td></tr><tr><td style="text-align: center;"><img src="legend/Polygon2_1_Sawah5.png" /></td><td>Sawah</td></tr></table>': layer_Polygon2_1,"Peta Satelit Grogol_modified": layer_PetaSatelitGrogol_modified_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        var mapDiv = document.getElementById('map');
+        var row = document.createElement('div');
+        row.className="row";
+        row.id="all";
+        row.style.height = "100%";
+        var col1 = document.createElement('div');
+        col1.className="col9";
+        col1.id = "mapWindow";
+        col1.style.height = "99%";
+        col1.style.width = "80%";
+        col1.style.display = "inline-block";
+        var col2 = document.createElement('div');
+        col2.className="col3";
+        col2.id = "menu";
+        col2.style.display = "inline-block";
+        mapDiv.parentNode.insertBefore(row, mapDiv);
+        document.getElementById("all").appendChild(col1);
+        document.getElementById("all").appendChild(col2);
+        col1.appendChild(mapDiv)
+        var Filters = {"Lokasi": "str"};
+        function filterFunc() {
+          map.eachLayer(function(lyr){
+          if ("options" in lyr && "dataVar" in lyr["options"]){
+            features = this[lyr["options"]["dataVar"]].features.slice(0);
+            try{
+              for (key in Filters){
+                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
+                if (Filters[key] == "str" || Filters[key] == "bool"){
+                  var selection = [];
+                  var options = document.getElementById("sel_" + keyS).options
+                  for (var i=0; i < options.length; i++) {
+                    if (options[i].selected) selection.push(options[i].value);
+                  }
+                    try{
+                      if (key in features[0].properties){
+                        for (i = features.length - 1;
+                          i >= 0; --i){
+                          if (selection.indexOf(
+                          features[i].properties[key])<0
+                          && selection.length>0) {
+                          features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                  }
+                }
+                if (Filters[key] == "int"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (parseInt(features[i].properties[key])
+                          < sliderVals[0]
+                          || parseInt(features[i].properties[key])
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "real"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (features[i].properties[key]
+                          < sliderVals[0]
+                          || features[i].properties[key]
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "date"
+                  || Filters[key] == "datetime"
+                  || Filters[key] == "time"){
+                  try{
+                    if (key in features[0].properties){
+                      HTMLkey = key.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g, '');
+                      startdate = document.getElementById("dat_" +
+                        HTMLkey + "_date1").value.replace(" ", "T");
+                      enddate = document.getElementById("dat_" +
+                        HTMLkey + "_date2").value.replace(" ", "T");
+                      for (i = features.length - 1; i >= 0; --i){
+                        if (features[i].properties[key] < startdate
+                          || features[i].properties[key] > enddate){
+                          features.splice(i,1);
+                        }
+                      }
+                    }
+                  } catch(err){
+                  }
+                }
+              }
+            } catch(err){
+            }
+          this[lyr["options"]["layerName"]].clearLayers();
+          this[lyr["options"]["layerName"]].addData(features);
+          }
+          })
+        }
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Lokasi = document.createElement('div');
+            div_Lokasi.id = "div_Lokasi";
+            div_Lokasi.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Lokasi);
+            sel_Lokasi = document.createElement('select');
+            sel_Lokasi.multiple = true;
+            sel_Lokasi.size = 10;
+            sel_Lokasi.id = "sel_Lokasi";
+            var Lokasi_options_str = "<option value='' unselected></option>";
+            sel_Lokasi.onchange = function(){filterFunc()};
+            Lokasi_options_str  += '<option value="Alifa Tekstil">Alifa Tekstil</option>';
+            Lokasi_options_str  += '<option value="BA Aisyiyah Grogol I">BA Aisyiyah Grogol I</option>';
+            Lokasi_options_str  += '<option value="Dekorasi Rustic Sukoharjo">Dekorasi Rustic Sukoharjo</option>';
+            Lokasi_options_str  += '<option value="Edi Genteng Nambangan">Edi Genteng Nambangan</option>';
+            Lokasi_options_str  += '<option value="Fadhil Hidroponik">Fadhil Hidroponik</option>';
+            Lokasi_options_str  += '<option value="GIYANTO Pengrajin Lurik ATBM">GIYANTO Pengrajin Lurik ATBM</option>';
+            Lokasi_options_str  += '<option value="GOR Badminton Balaidesa">GOR Badminton Balaidesa</option>';
+            Lokasi_options_str  += '<option value="Genteng Pres Aisyah Nur Khasanah">Genteng Pres Aisyah Nur Khasanah</option>';
+            Lokasi_options_str  += '<option value="Genteng Pres Eko Putra">Genteng Pres Eko Putra</option>';
+            Lokasi_options_str  += '<option value="Genteng Pres Raffi Putra (mbak Yekti)">Genteng Pres Raffi Putra (mbak Yekti)</option>';
+            Lokasi_options_str  += '<option value="Genteng Pres Wiyono Aisyah">Genteng Pres Wiyono Aisyah</option>';
+            Lokasi_options_str  += '<option value="Genteng Soka Produks (Sriyono)">Genteng Soka Produks (Sriyono)</option>';
+            Lokasi_options_str  += '<option value="Genteng Sokka Djaya">Genteng Sokka Djaya</option>';
+            Lokasi_options_str  += '<option value="Genteng Sunarno (Merk Sokka Djaja)">Genteng Sunarno (Merk Sokka Djaja)</option>';
+            Lokasi_options_str  += '<option value="Genteng Yeni Putra Suyadi">Genteng Yeni Putra Suyadi</option>';
+            Lokasi_options_str  += '<option value="HANI Pigura">HANI Pigura</option>';
+            Lokasi_options_str  += '<option value="Hilal Lurik">Hilal Lurik</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Groya Lestari">Industri Genteng Groya Lestari</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Mantili">Industri Genteng Mantili</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Pak Suryadi">Industri Genteng Pak Suryadi</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Pak Tris">Industri Genteng Pak Tris</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Sari Bumi (Pak Pratama)">Industri Genteng Sari Bumi (Pak Pratama)</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Sari Bumi (Pak Sriyono)">Industri Genteng Sari Bumi (Pak Sriyono)</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Soka Lestari">Industri Genteng Soka Lestari</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Sokka Produk">Industri Genteng Sokka Produk</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Super Adi Jaya">Industri Genteng Super Adi Jaya</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng Wahyu Putra">Industri Genteng Wahyu Putra</option>';
+            Lokasi_options_str  += '<option value="Industri Genteng mbak Haryanti">Industri Genteng mbak Haryanti</option>';
+            Lokasi_options_str  += '<option value="Irsam Farm">Irsam Farm</option>';
+            Lokasi_options_str  += '<option value="KWT Makmur Desa Grogol">KWT Makmur Desa Grogol</option>';
+            Lokasi_options_str  += '<option value="Kantor Balai Desa Grogol, Weru">Kantor Balai Desa Grogol, Weru</option>';
+            Lokasi_options_str  += '<option value="Kelik Pengrajin Wuwung">Kelik Pengrajin Wuwung</option>';
+            Lokasi_options_str  += '<option value="Kelompok Bermain Tp Candi Asri">Kelompok Bermain Tp Candi Asri</option>';
+            Lokasi_options_str  += '<option value="Kelompok Mebel Karya Nyata">Kelompok Mebel Karya Nyata</option>';
+            Lokasi_options_str  += '<option value="Lurik Pangestu">Lurik Pangestu</option>';
+            Lokasi_options_str  += '<option value="Lurik Tenun Sari">Lurik Tenun Sari</option>';
+            Lokasi_options_str  += '<option value="MIN 5 Sukoharjo">MIN 5 Sukoharjo</option>';
+            Lokasi_options_str  += '<option value="MTA Cabang Weru 03">MTA Cabang Weru 03</option>';
+            Lokasi_options_str  += '<option value="Majid Sayyidul Chabib Abdulloh Ibn Baqi">Majid Sayyidul Chabib Abdulloh Ibn Baqi</option>';
+            Lokasi_options_str  += '<option value="Masjid Al Falah">Masjid Al Falah</option>';
+            Lokasi_options_str  += '<option value="Masjid Al Ikhlas">Masjid Al Ikhlas</option>';
+            Lokasi_options_str  += '<option value="Masjid Al-Munawaroh">Masjid Al-Munawaroh</option>';
+            Lokasi_options_str  += '<option value="Masjid Darussalam">Masjid Darussalam</option>';
+            Lokasi_options_str  += '<option value="Masjid Nur Hidayatullah">Masjid Nur Hidayatullah</option>';
+            Lokasi_options_str  += '<option value="Masjid Nurrochman Nambangan Grogol">Masjid Nurrochman Nambangan Grogol</option>';
+            Lokasi_options_str  += '<option value="Masjid Nurul Iman">Masjid Nurul Iman</option>';
+            Lokasi_options_str  += '<option value="Mebel Pak Marimin">Mebel Pak Marimin</option>';
+            Lokasi_options_str  += '<option value="Meubel Lina Jaya">Meubel Lina Jaya</option>';
+            Lokasi_options_str  += '<option value="Mushola Al Huda">Mushola Al Huda</option>';
+            Lokasi_options_str  += '<option value="Mushola Al Ihsan">Mushola Al Ihsan</option>';
+            Lokasi_options_str  += '<option value="Mushola Al-Mukmin Kresan">Mushola Al-Mukmin Kresan</option>';
+            Lokasi_options_str  += '<option value="Mushola Baitus Salam">Mushola Baitus Salam</option>';
+            Lokasi_options_str  += '<option value="Mushola Nur Rochim Nambangan">Mushola Nur Rochim Nambangan</option>';
+            Lokasi_options_str  += '<option value="Ngadiyo Pembuat Bahan Bakar Arang">Ngadiyo Pembuat Bahan Bakar Arang</option>';
+            Lokasi_options_str  += '<option value="PG (Dwi Tunggal) Sugeng Riyanto">PG (Dwi Tunggal) Sugeng Riyanto</option>';
+            Lokasi_options_str  += '<option value="PG Agung Putra">PG Agung Putra</option>';
+            Lokasi_options_str  += '<option value="PG Andri Putra (Bp. Slamet Cokro)">PG Andri Putra (Bp. Slamet Cokro)</option>';
+            Lokasi_options_str  += '<option value="PG Bapak Sriyono">PG Bapak Sriyono</option>';
+            Lokasi_options_str  += '<option value="PG Dayar Putra (Gatot Priyanto)">PG Dayar Putra (Gatot Priyanto)</option>';
+            Lokasi_options_str  += '<option value="PG Dua Sekawan">PG Dua Sekawan</option>';
+            Lokasi_options_str  += '<option value="PG Eka Sokka Produks (Desi Aqhtar)">PG Eka Sokka Produks (Desi Aqhtar)</option>';
+            Lokasi_options_str  += '<option value="PG Eko Putra (Mas Eko/Danik)">PG Eko Putra (Mas Eko/Danik)</option>';
+            Lokasi_options_str  += '<option value="PG Griya Prima Pak Samino">PG Griya Prima Pak Samino</option>';
+            Lokasi_options_str  += '<option value="PG KPS Produk (Genjer)">PG KPS Produk (Genjer)</option>';
+            Lokasi_options_str  += '<option value="PG Mas Sunimin">PG Mas Sunimin</option>';
+            Lokasi_options_str  += '<option value="PG Muda Jaya">PG Muda Jaya</option>';
+            Lokasi_options_str  += '<option value="PG Mulya Group">PG Mulya Group</option>';
+            Lokasi_options_str  += '<option value="PG Mulya Lestari">PG Mulya Lestari</option>';
+            Lokasi_options_str  += '<option value="PG Mustika Tamto M">PG Mustika Tamto M</option>';
+            Lokasi_options_str  += '<option value="PG Nugroho Lestari">PG Nugroho Lestari</option>';
+            Lokasi_options_str  += '<option value="PG Pak Slamet Rt">PG Pak Slamet Rt</option>';
+            Lokasi_options_str  += '<option value="PG Primasoka">PG Primasoka</option>';
+            Lokasi_options_str  += '<option value="PG Riyanto Gareng">PG Riyanto Gareng</option>';
+            Lokasi_options_str  += '<option value="PG Rizki Fajar">PG Rizki Fajar</option>';
+            Lokasi_options_str  += '<option value="PG Sari Bumi Super">PG Sari Bumi Super</option>';
+            Lokasi_options_str  += '<option value="PG Sari Indah (Sigit Hidayat)">PG Sari Indah (Sigit Hidayat)</option>';
+            Lokasi_options_str  += '<option value="PG Sari Indah (Suwadi)">PG Sari Indah (Suwadi)</option>';
+            Lokasi_options_str  += '<option value="PG Seno">PG Seno</option>';
+            Lokasi_options_str  += '<option value="PG Setia Jaya Sokka">PG Setia Jaya Sokka</option>';
+            Lokasi_options_str  += '<option value="PG Sokka Products (Suyatno)">PG Sokka Products (Suyatno)</option>';
+            Lokasi_options_str  += '<option value="PG Sokka Produks & sigit putra">PG Sokka Produks & sigit putra</option>';
+            Lokasi_options_str  += '<option value="PG Sokka Produks Rini">PG Sokka Produks Rini</option>';
+            Lokasi_options_str  += '<option value="PG Tanah Mas Bp. Sutarno">PG Tanah Mas Bp. Sutarno</option>';
+            Lokasi_options_str  += '<option value="PG Trie Berlian Sokka Produk">PG Trie Berlian Sokka Produk</option>';
+            Lokasi_options_str  += '<option value="PG Wika Putra">PG Wika Putra</option>';
+            Lokasi_options_str  += '<option value="PG Wira Mulya (Suyitno)">PG Wira Mulya (Suyitno)</option>';
+            Lokasi_options_str  += '<option value="PG Wisnu Eka Putra">PG Wisnu Eka Putra</option>';
+            Lokasi_options_str  += '<option value="Pengrajin Genteng Pres Rizky Dibyo">Pengrajin Genteng Pres Rizky Dibyo</option>';
+            Lokasi_options_str  += '<option value="Pengrajin Wuwung SAPTO GROUP">Pengrajin Wuwung SAPTO GROUP</option>';
+            Lokasi_options_str  += '<option value="Prima Press Marsono">Prima Press Marsono</option>';
+            Lokasi_options_str  += '<option value="Produk Genteng Pres "Rahma Produk"">Produk Genteng Pres "Rahma Produk"</option>';
+            Lokasi_options_str  += '<option value="Produk Genteng Pres Darma Putra">Produk Genteng Pres Darma Putra</option>';
+            Lokasi_options_str  += '<option value="Produk Genteng Pres Yanto Putro">Produk Genteng Pres Yanto Putro</option>';
+            Lokasi_options_str  += '<option value="Produksi Genteng "Rosyid Putro/Budi"">Produksi Genteng "Rosyid Putro/Budi"</option>';
+            Lokasi_options_str  += '<option value="Produksi Genteng Edy Putra">Produksi Genteng Edy Putra</option>';
+            Lokasi_options_str  += '<option value="Produksi Genteng Margono">Produksi Genteng Margono</option>';
+            Lokasi_options_str  += '<option value="Produksi Genteng Pres Mas Heri">Produksi Genteng Pres Mas Heri</option>';
+            Lokasi_options_str  += '<option value="Produksi Genteng Press Sumino Sum">Produksi Genteng Press Sumino Sum</option>';
+            Lokasi_options_str  += '<option value="Produsen Genteng Sokka Produk "Azzis Ahmad Wohar)">Produsen Genteng Sokka Produk "Azzis Ahmad Wohar)</option>';
+            Lokasi_options_str  += '<option value="Rejo Tani">Rejo Tani</option>';
+            Lokasi_options_str  += '<option value="Rista Jaya Alumunium dan Kaca">Rista Jaya Alumunium dan Kaca</option>';
+            Lokasi_options_str  += '<option value="Royal Jaya Sangkar">Royal Jaya Sangkar</option>';
+            Lokasi_options_str  += '<option value="Rumah Sunat Wahana Husada">Rumah Sunat Wahana Husada</option>';
+            Lokasi_options_str  += '<option value="SDN Grogol 01 Weru">SDN Grogol 01 Weru</option>';
+            Lokasi_options_str  += '<option value="SDN Grogol 02 Weru">SDN Grogol 02 Weru</option>';
+            Lokasi_options_str  += '<option value="SMP Muhammadiyah Grogol Weru">SMP Muhammadiyah Grogol Weru</option>';
+            Lokasi_options_str  += '<option value="Sari Puyuh Farm">Sari Puyuh Farm</option>';
+            Lokasi_options_str  += '<option value="Sarung Tenun Bu Endang">Sarung Tenun Bu Endang</option>';
+            Lokasi_options_str  += '<option value="Sis Wuwung Seng">Sis Wuwung Seng</option>';
+            Lokasi_options_str  += '<option value="SokkaProduks Rini Fara">SokkaProduks Rini Fara</option>';
+            Lokasi_options_str  += '<option value="Sulardi Genteng Press">Sulardi Genteng Press</option>';
+            Lokasi_options_str  += '<option value="Suparno PG + Jar Putra">Suparno PG + Jar Putra</option>';
+            Lokasi_options_str  += '<option value="TPA/TPQ Al Hidayah">TPA/TPQ Al Hidayah</option>';
+            Lokasi_options_str  += '<option value="Tenun Lurik ATBM "REJEKI" Bulu Domba">Tenun Lurik ATBM "REJEKI" Bulu Domba</option>';
+            Lokasi_options_str  += '<option value="Toko Genteng Mustika Bumiloka">Toko Genteng Mustika Bumiloka</option>';
+            Lokasi_options_str  += '<option value="UKM Kismo Aji">UKM Kismo Aji</option>';
+            Lokasi_options_str  += '<option value="Wuwung Rapi">Wuwung Rapi</option>';
+            Lokasi_options_str  += '<option value="Wuwung Talang Seng "Rukiman"">Wuwung Talang Seng "Rukiman"</option>';
+            Lokasi_options_str  += '<option value="Wuwung talang seng galvalum">Wuwung talang seng galvalum</option>';
+            Lokasi_options_str  += '<option value="Yanto Wuwung">Yanto Wuwung</option>';
+            sel_Lokasi.innerHTML = Lokasi_options_str;
+            div_Lokasi.appendChild(sel_Lokasi);
+            var lab_Lokasi = document.createElement('div');
+            lab_Lokasi.innerHTML = 'Lokasi';
+            lab_Lokasi.className = 'filterlabel';
+            div_Lokasi.appendChild(lab_Lokasi);
+            var reset_Lokasi = document.createElement('div');
+            reset_Lokasi.innerHTML = 'clear filter';
+            reset_Lokasi.className = 'filterlabel';
+            reset_Lokasi.onclick = function() {
+                var options = document.getElementById("sel_Lokasi").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Lokasi.appendChild(reset_Lokasi);
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        resetLabels([layer_Point_3]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Point_3]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Point_3]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Point_3]);
+        });
+        </script>
+    </body>
+</html>
